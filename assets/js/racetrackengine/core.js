@@ -1,5 +1,5 @@
 import { seed } from "./functions/seed.js";
-import { inicializar, avanzar, retroceder } from "./functions/print.js";
+import { inicializar, avanzarBg, retrocederBg } from "./functions/print.js";
 import { createDetector, accelerationCar } from "./functions/controller.js";
 
 const game = {
@@ -8,8 +8,8 @@ const game = {
         inicializar: inicializar
     },
     car : {
-        avanzar : avanzar,
-        retroceder: retroceder,
+        avanzarBg : avanzarBg,
+        retrocederBg: retrocederBg,
         createDetector: createDetector,
         accelerationCar: accelerationCar
     }

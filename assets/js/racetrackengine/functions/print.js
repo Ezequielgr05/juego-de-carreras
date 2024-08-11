@@ -83,10 +83,11 @@ function asignClass(matriz, matrizElementos, inicializar = false, auto = undefin
 }
 
 class Auto {
-    constructor (posicionMatriz, posicionEspacio, orientacion) {
+    constructor (posicionMatriz, posicionEspacio, orientacion, autoElemento) {
         this.pMatriz = posicionMatriz
         this.pEspacio = posicionEspacio
         this.orientacion = orientacion
+        this.elemento = autoElemento
     }
 }
 // El objeto que devuelve es el siguiente
@@ -113,22 +114,24 @@ function inicializar(id, seed, guardaractual) {
     // Auto
     let posicionMatriz
     let orientacion
-    let auto = [posicionMatriz, [0,-1], orientacion]
+    let auto = [posicionMatriz, [0,0], orientacion]
 
     asignClass(matrizCircuito, matrizElements, true, auto)
 
-    const autoActual = new Auto(auto[0], auto[1], auto[2])
+    let elementoAuto = document.querySelector("#jugador")
+
+    const autoActual = new Auto(auto[0], auto[1], auto[2], elementoAuto)
 
     let detect = createDetector(matrizElements, autoActual, true)
 
     return new configuracion (circuito, matrizElements, autoActual, detect)
 }
 
-function retroceder(configuracion, actual) {
+function retrocederBg(configuracion, actual) {
     let min = actual[0];
     let max = actual[1];
-    let matrizCircuito = configuracion[0]
-    let matrizElementos = configuracion[1]
+    let matrizCircuito = configuracion.circuito
+    let matrizElementos = configuracion.elemento
     let limiteSuperior = matrizCircuito.length;
 
     if (max !== limiteSuperior) {
@@ -141,7 +144,7 @@ function retroceder(configuracion, actual) {
     }
 }
 
-function avanzar(configuracion, actual) {
+function avanzarBg(configuracion, actual) {
     let limiteInferior = 0;
     let min = actual[0];
     let max = actual[1];
@@ -158,7 +161,7 @@ function avanzar(configuracion, actual) {
     }
 }
 
-export {inicializar, avanzar, retroceder}
+export {inicializar, avanzarBg, retrocederBg}
 
 // Una vez creada la seed se necesita crear una variable que tenga un array vacio dentro, para guardar la posicion actual del mapa
 // tambien una variable vacia para guardar el detector

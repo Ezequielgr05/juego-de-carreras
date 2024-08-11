@@ -29,11 +29,23 @@ console.log(auto)
 console.log(positionNow)
 console.log(seed)
 
+console.log(auto.elemento)
+
 document.addEventListener("keypress", (event) => {
     // avanzar
     if (event.key == "w") {
         setTimeout(() => {
-           game.car.avanzar(configuration, positionNow)
+           let accion = updateDetector()
+           switch (accion) {
+            case "goUp":
+                game.car.avanzarBg(configuration, positionNow)
+                break;
+            case "goDown":
+                game.car.retrocederBg(configuration, positionNow)
+                break;
+            default:
+                break;
+           }
         }, 500);
         
     }

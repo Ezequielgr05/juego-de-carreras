@@ -58,6 +58,7 @@ function accelerationCar(variable, typeAccelerating = true, curva = false) {
 // IPMS_min: 500 la minima tasa de impresion 
 // } 
 //y en variable va este objeto
+
 function detectPista(coords, matriz) {
     let element = matriz[coords[0]][coords[1]]
     let elementClass = element.classList.value
@@ -189,5 +190,38 @@ function createDetector(matrizElementos, auto, init = false, variable = {}) {
 //         aceleracion()
 //     }, variable.IPMS_State);
 // }
+
+const position = {
+    y : {
+        "-2" : 30,
+        "-1" : 15,
+        "0" : 0,
+        "1" : -15,
+        "2" : -30
+    } ,
+    x : {
+        "-2" : 40,
+        "-1" : 20,
+        "0" : 0,
+        "1" : -20,
+        "2" : -40
+    }
+}
+
+function avanzarCar(auto, configuracion) {
+    let posicionEspacioActual = auto.pEspacio
+    let posicionMatrizActual = auto.pMatriz
+
+    if (posicionEspacioActual[1] >= -2 && posicionEspacioActual[1] <= 2) {
+        auto.pEspacio[1]++
+        
+    }
+
+}
+
+function retrocederCar(auto, configuracion) {
+    let posicionEspacioActual = auto.pEspacio
+    let posicionMatrizActual = auto.pMatriz
+}
 
 export {createDetector, accelerationCar}

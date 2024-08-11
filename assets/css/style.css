@@ -10,38 +10,50 @@ body {
     align-items: center;
     width: 100%;
     height: 100vh;
-}
-
-.border {
-    display: flex;
-    justify-content: center;
+    background-color: #2e2e2e;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
 }
 
 /* pista */
 .road {
+    position: relative;
     background-image: url(../img/fondo.png);
+    background-size: 40%;
     background-repeat: repeat;
-    width: min(95vw, 95vh);
-    height: min(95vw, 95vh);
+    padding-left: 70px;
+    padding-right: 70px;
+    width: min(110vw, 110vh);
+    height: calc(min(110vw, 110vh) - 140px);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    border-radius: 20px;
+}
+
+.road::before {
+    content: '';
+    position: absolute;
+    z-index: 80;
+    width: 100%;
+    height: 99%;
+    background-color: #ffffff0c;
+    background-image: url("https://www.transparenttextures.com/patterns/subtle-dots.png");
+    border-radius: 15px;
+    border: 8px solid #2e2e2e;
+    border-bottom: 16px solid #2e2e2e;
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Corredor y jugador */
 .corredor {
     position: relative;
+    z-index: 25;
     object-fit: contain;
     width: calc(100%/2);
     height: 100%;
-}
-
-.corredor-curva {
-    width: calc((100% - 25px)/2);
-}
-
-.corredor-horizontal {
-    width: calc((100% - 50px)/2);
 }
 
 .corredor-derecha {
@@ -67,323 +79,992 @@ body {
 
 /* diseño de pistas */
 
+.recto-vertical0, 
+.recto-vertical1, 
+.recto-vertical2, 
+.recto-vertical3, 
+.recto-horizontal0, 
+.recto-horizontal1, 
+.recto-horizontal2, 
+.recto-horizontal3,
+.curva-abajo-derecha0,
+.curva-abajo-derecha1,
+.curva-abajo-derecha2,
+.curva-abajo-derecha3,
+.curva-abajo-izquierda0,
+.curva-abajo-izquierda1,
+.curva-abajo-izquierda2,
+.curva-abajo-izquierda3,
+.curva-arriba-derecha0,
+.curva-arriba-derecha1,
+.curva-arriba-derecha2,
+.curva-arriba-derecha3,
+.curva-arriba-izquierda0,
+.curva-arriba-izquierda1,
+.curva-arriba-izquierda2,
+.curva-arriba-izquierda3,
+.comienzo-vertical, 
+.comienzo-horizontal, 
+.deco0, 
+.deco1, 
+.deco2, 
+.deco3, 
+.deco4, 
+.deco5, 
+.deco6 {
+    display: flex;
+    justify-content: center;
+}
+
+/* Recto en vertical */
 .recto-vertical0 {
-    background-image: url(../img/pistas/recto-vertical.png);
+    z-index: 0;
+    position: relative;
+    background-image: url(../img/pistas/recto.png);
     background-position: center;
     background-size: contain;
+}
+
+.recto-vertical0::before {
+    content: '';
+    position: absolute;
+    z-index: 38;
+    background-image: url(../img/deco/others/deco2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 40%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.recto-vertical0::after {
+    content: '';
+    position: absolute;
+    z-index: 39;
+    background-image: url(../img/deco/others/deco3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: 107%;
+    transform: translate(-50%, -50%);
 }
 
 .recto-vertical1 {
-    background-image: url(../img/pistas/recto-vertical.png);
+    position: relative;
+    z-index: 1;
+    background-image: url(../img/pistas/recto.png);
     background-position: center;
     background-size: contain;
 }
+
+.recto-vertical1::before {
+    content: '';
+    position: absolute;
+    z-index: 40;
+    background-image: url(../img/deco/others/deco5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 30%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.recto-vertical1::after {
+    content: '';
+    position: absolute;
+    z-index: 41;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 70%;
+    left: 107%;
+    transform: translate(-50%, -50%);
+}
+
 .recto-vertical2 {
-    background-image: url(../img/pistas/recto-vertical.png);
+    position: relative;
+    z-index: 2;
+    background-image: url(../img/pistas/recto.png);
     background-position: center;
     background-size: contain;
 }
+
+.recto-vertical2::before {
+    content: '';
+    position: absolute;
+    z-index: 42;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.recto-vertical2::after {
+    content: '';
+    position: absolute;
+    z-index: 43;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: 107%;
+    transform: translate(-50%, -50%);
+}
+
 .recto-vertical3 {
-    background-image: url(../img/pistas/recto-vertical.png);
+    position: relative;
+    z-index: 3;
+    background-image: url(../img/pistas/recto.png);
     background-position: center;
     background-size: contain;
 }
 
-.recto-vertical {
-    position: relative;
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-left: 25px solid rgb(27, 27, 27);
-    border-right: 25px solid rgb(27, 27, 27);
-}
-
-.recto-horizontal {
-    position: relative;
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-top: 25px solid rgb(27, 27, 27);
-    border-bottom: 25px solid rgb(27, 27, 27);
-}
-
-.recto-vertical-izquierda {
-    position: relative;
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-right: 25px solid rgb(27, 27, 27);
-    border-left: 25px solid rgb(53, 53, 53);
-}
-
-.recto-vertical-izquierda::after {
+.recto-vertical3::before {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
+    z-index: 44;
+    background-image: url(../img/deco/others/deco6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
 
-    bottom: 0;
-    left: -60px;
-    transform: translate(100%, 0%);
-
-    background-color: rgb(27, 27, 27);
-}
-
-.recto-vertical::before, .recto-vertical-curva-izquierda::before {
-    content: '';
-    position: absolute;
-    width: calc(100%/10);
-    height: calc(100%/1.5);
-    top: 50%;
-    left: 50%;
+    top: 55%;
+    left: -7%;
     transform: translate(-50%, -50%);
-    border-radius: 5px;
-
-    background-color: aliceblue;
 }
 
-.recto-horizontal::before {
+.recto-vertical3::after {
     content: '';
     position: absolute;
-    width: calc(100%/1.5);
-    height: calc(100%/10);
-    top: 50%;
-    left: 50%;
+    z-index: 45;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: 107%;
     transform: translate(-50%, -50%);
-    border-radius: 5px;
-
-    background-color: aliceblue;
 }
 
-.curva-arriba-izquierda {
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-top: 25px solid rgb(27, 27, 27);
-    border-right: 25px solid rgb(27, 27, 27);
-    border-top-right-radius: 100px;
+/* Recto en horizontal */
+.recto-horizontal0 {
+    z-index: 4;
+    position: relative;
+    background-image: url(../img/pistas/recto.png);
+    background-position: center;
+    background-size: contain;
+    transform: rotate(90deg)
 }
 
-.curva-arriba-derecha {
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-top: 25px solid rgb(27, 27, 27);
-    border-left: 25px solid rgb(27, 27, 27);
-    border-top-left-radius: 100px;
+/* .recto-horizontal0::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    background-image: url(../img/deco/others/deco2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+} */
+
+.recto-horizontal1 {
+    position: relative;
+    z-index: 5;
+    background-image: url(../img/pistas/recto.png);
+    background-position: center;
+    background-size: contain;
+    transform: rotate(90deg)
 }
 
-.curva-abajo-izquierda {
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-bottom: 25px solid rgb(27, 27, 27);
-    border-right: 25px solid rgb(27, 27, 27);
-    border-bottom-right-radius: 100px;
+/* .recto-horizontal1::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+} */
+
+.recto-horizontal2 {
+    position: relative;
+    z-index: 6;
+    background-image: url(../img/pistas/recto.png);
+    background-position: center;
+    background-size: contain;
+    transform: rotate(90deg)
 }
 
-.curva-abajo-derecha {
-    border: none;
-    background-color: rgb(53, 53, 53);
-    border-bottom: 25px solid rgb(27, 27, 27);
-    border-left: 25px solid rgb(27, 27, 27);
-    border-bottom-left-radius: 100px;
+/* .recto-horizontal3::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+} */
+
+.recto-horizontal3 {
+    position: relative;
+    z-index: 7;
+    background-image: url(../img/pistas/recto.png);
+    background-position: center;
+    background-size: contain;
+    transform: rotate(90deg)
 }
 
+/* .recto-horizontal3::before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    background-image: url(../img/deco/others/deco6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+} */
+
+/* Curva de arriba hacia a la izquierda */
+.curva-arriba-izquierda0 {
+    position: relative;
+    z-index: 8;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1);
+}
+
+.curva-arriba-izquierda0::before {
+    content: '';
+    position: absolute;
+    z-index: 46;
+    background-image: url(../img/deco/others/deco3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-izquierda1 {
+    position: relative;
+    z-index: 9;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1);
+}
+
+.curva-arriba-izquierda1::before {
+    content: '';
+    position: absolute;
+    z-index: 47;
+    background-image: url(../img/deco/others/deco5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-izquierda2 {
+    position: relative;
+    z-index: 10;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1);
+}
+
+.curva-arriba-izquierda2::before {
+    content: '';
+    position: absolute;
+    z-index: 48;
+    background-image: url(../img/deco/others/deco2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-izquierda3 {
+    position: relative;
+    z-index: 11;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1);
+}
+
+.curva-arriba-izquierda3::before {
+    content: '';
+    position: absolute;
+    z-index: 49;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-izquierda0 img,
+.curva-arriba-izquierda1 img,
+.curva-arriba-izquierda2 img,
+.curva-arriba-izquierda3 img {
+    transform: scaleX(-1);
+}
+
+/* Curva de arriba hacia a la derecha */
+.curva-arriba-derecha0 {
+    position: relative;
+    z-index: 12;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.curva-arriba-derecha0::before {
+    content: '';
+    position: absolute;
+    z-index: 50;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-derecha1 {
+    position: relative;
+    z-index: 13;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.curva-arriba-derecha1::before {
+    content: '';
+    position: absolute;
+    z-index: 51;
+    background-image: url(../img/deco/others/deco5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-derecha2 {
+    position: relative;
+    z-index: 14;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.curva-arriba-derecha2::before {
+    content: '';
+    position: absolute;
+    z-index: 52;
+    background-image: url(../img/deco/others/deco2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-arriba-derecha3 {
+    position: relative;
+    z-index: 15;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+}
+
+.curva-arriba-derecha3::before {
+    content: '';
+    position: absolute;
+    z-index: 53;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+/* Curva de abajo hacia a la izquierda */
+.curva-abajo-izquierda0 {
+    position: relative;
+    z-index: 16;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.curva-abajo-izquierda0::before {
+    content: '';
+    position: absolute;
+    z-index: 54;
+    background-image: url(../img/deco/others/deco6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-izquierda1 {
+    position: relative;
+    z-index: 17;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.curva-abajo-izquierda1::before {
+    content: '';
+    position: absolute;
+    z-index: 55;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-izquierda2 {
+    position: relative;
+    z-index: 18;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.curva-abajo-izquierda2::before {
+    content: '';
+    position: absolute;
+    z-index: 56;
+    background-image: url(../img/deco/others/deco3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-izquierda3 {
+    position: relative;
+    z-index: 19;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleX(-1) scaleY(-1);
+}
+
+.curva-abajo-izquierda3::before {
+    content: '';
+    position: absolute;
+    z-index: 57;
+    background-image: url(../img/deco/others/deco2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-izquierda0 img, 
+.curva-abajo-izquierda1 img, 
+.curva-abajo-izquierda2 img, 
+.curva-abajo-izquierda3 img {
+    transform: scaleX(-1) scaleY(-1);
+}
+
+/* Curva de arriba hacia a la derecha */
+.curva-abajo-derecha0 {
+    position: relative;
+    z-index: 20;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleY(-1);
+}
+
+.curva-abajo-derecha0::before {
+    content: '';
+    position: absolute;
+    z-index: 58;
+    background-image: url(../img/deco/others/deco5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 45%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-derecha1 {
+    position: relative;
+    z-index: 21;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleY(-1);
+}
+
+.curva-abajo-derecha1::before {
+    content: '';
+    position: absolute;
+    z-index: 59;
+    background-image: url(../img/deco/others/deco4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-derecha2 {
+    position: relative;
+    z-index: 22;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleY(-1);
+}
+
+.curva-abajo-derecha2::before {
+    content: '';
+    position: absolute;
+    z-index: 60;
+    background-image: url(../img/deco/others/deco6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 55%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-derecha3 {
+    position: relative;
+    z-index: 23;
+    background-image: url(../img/pistas/curva.png);
+    background-position: center;
+    background-size: contain;
+    transform: scaleY(-1);
+}
+
+.curva-abajo-derecha3::before {
+    content: '';
+    position: absolute;
+    z-index: 61;
+    background-image: url(../img/deco/others/deco1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: -7%;
+    transform: translate(-50%, -50%);
+}
+
+.curva-abajo-derecha0 img, 
+.curva-abajo-derecha1 img, 
+.curva-abajo-derecha2 img, 
+.curva-abajo-derecha3 img {
+    transform: scaleY(-1);
+}
+
+/* comienzos */
 .comienzo-vertical {
-    border: none; 
-    position: relative; 
-    background-color: rgb(53, 53, 53);
-    border-left: 25px solid rgb(27, 27, 27);
-    border-right: 25px solid rgb(27, 27, 27);
+    position: relative;
+    z-index: 24;
+    background-image: url(../img/pistas/comienzo.png);
+    background-position: center;
+    background-size: contain;
 }
 
 .comienzo-vertical::before {
-    content: ' ';
-    display: block;
+    content: '';
     position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 100%;
-    height: 50%;
-    background: url(../img/inicio.png);
+    z-index: 62;
+    background-image: url(../img/deco/others/deco5.png);
     background-position: center;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 50%;
+    left: -7%;
+    transform: translate(-50%, -50%);
 }
 
 .comienzo-vertical::after {
-    content: ' ';
-    display: block;
+    content: '';
     position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 100%;
-    height: 70%;
-
-    border-bottom: 10px solid aliceblue;
-    border-top: 10px solid aliceblue;
-}
-
-.comienzo-horizontal {
-    border: none; 
-    position: relative; 
-    background-color: rgb(53, 53, 53);
-    border-top: 25px solid rgb(27, 27, 27);
-    border-bottom: 25px solid rgb(27, 27, 27);
-}
-
-.comienzo-horizontal::before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%) rotate(90deg);
-    width: calc(100% - 50px);
-    height: 75%;
-    background: url(../img/inicio.png);
+    z-index: 63;
+    background-image: url(../img/deco/others/deco2.png);
     background-position: center;
-    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: 130%;
+    width: 25%;
+    height: 55%;
+
+    top: 60%;
+    left: 107%;
+    transform: translate(-50%, -50%);
 }
 
-.comienzo-horizontal::after {
-    content: ' ';
-    display: block;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%);
-    width: 70%;
-    height: 100%;
-
-    border-left: 10px solid aliceblue;
-    border-right: 10px solid aliceblue;
-}
-
-/* decoracion */
-.arboles {
+/* decoraciones */
+.deco0 {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    z-index: 64;
+    background-image: url(../img/deco/arboles/arbol1.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol1 {
-    border: none;
+.deco0::before {
+    content: '';
+    z-index: 27;
     position: absolute;
-    object-fit: contain;
-    width: calc(100%/1.2);
-    height: 100%;
+    left: 100%;
+    top: 50%;
+    transform: translate(-50%, 20%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol2 {
+.deco0::after {
+    content: '';
+    z-index: 28;
+    position: absolute;
+    left: 0%;
+    top: 100%;
+    transform: translate(10%, -50%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.deco1 {
+    position: relative;
+    z-index: 65;
+    background-image: url(../img/deco/arboles/arbol2.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.deco1::before {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100%/1.5);
-    height: 100%;
-    top: 15%;
-    left: 35%;
+    z-index: 29;
+    left: 100%;
+    top: 0%;
+    transform: translate(-100%, 0%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol3 {
-    content: '';
-    position: absolute;
-    object-fit: contain;
-    width: calc(100%/1.5);
-    height: 100%;
-    top: 10%;
-    left: 10%;
+.deco2 {
+    position: relative;
+    z-index: 66;
+    background-image: url(../img/deco/arboles/arbol3.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol4 {
+.deco2::before {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100%/1.5);
-    height: 100%;
-    top: -10%;
-    left: -10%;
+    z-index: 30;
+    left: 80%;
+    top: 0%;
+    transform: translate(-80%, 10%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol5 {
-    content: '';
-    position: absolute;
-    object-fit: contain;
-    width: calc(100%/1.5);
-    height: 100%;
-    top: 10%;
-    left: 20%;
+.deco3 {
+    position: relative;
+    z-index: 67;
+    background-image: url(../img/deco/arboles/arbol4.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol6 {
+.deco3::before {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.3);
-    height: 100%;
-    top: 20%;
-    left: 20%;
+    z-index: 31;
+    left: 30%;
+    top: 100%;
+    transform: translate(-30%, -100%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol7 {
-    content: '';
-    position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.3);
-    height: 100%;
-    top: -20%;
-    left: -20%;
+.deco4 {
+    position: relative;
+    z-index: 68;
+    background-image: url(../img/deco/arboles/arbol5.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol8 {
+.deco4::before {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.4);
-    height: 100%;
-    top: 10%;
-    left: -10%;
+    z-index: 32;
+    left: 0%;
+    top: 0%;
+    transform: translate(5%, 30%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol9 {
+.deco4::after {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.4);
-    height: 100%;
-    top: -10%;
-    left: 10%;
+    z-index: 33;
+    left: 100%;
+    top: 65%;
+    transform: translate(-110%, -60%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol10 {
-    content: '';
-    position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.5);
-    height: 100%;
-    top: 5%;
-    left: 25%;
+.deco5 {
+    position: relative;
+    z-index: 69;
+    background-image: url(../img/deco/arboles/arbol6.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol11 {
+.deco5::before {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.5);
-    height: 100%;
-    top: -5%;
-    left: -25%;
+    z-index: 34;
+    left: 100%;
+    top: 0%;
+    transform: translate(-130%, 10%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol12 {
+.deco5::after {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.5);
-    height: 100%;
-    top: 15%;
-    left: -15%;
+    z-index: 35;
+    left: 0%;
+    top: 100%;
+    transform: translate(10%, -150%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
 
-.arbol13 {
+.deco6 {
+    position: relative;
+    z-index: 70;
+    background-image: url(../img/deco/arboles/arbol7.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.deco6::before {
+    content: '';
+    z-index: 36;
+    position: absolute;
+    left: 0%;
+    top: 0%;
+    transform: translate(5%, 10%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+}
+
+.deco6::after {
     content: '';
     position: absolute;
-    object-fit: contain;
-    width: calc(100% / 1.5);
-    height: 100%;
-    top: -15%;
-    left: 15%;
+    z-index: 37;
+    left: 100%;
+    top: 100%;
+    transform: translate(-110%, -110%);
+    width: 30%;
+    height: 30%;
+    background-image: url(../img/deco/others/flor.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
 }
